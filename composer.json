@@ -1,15 +1,14 @@
 {
-  "name": "mag310/csu2024",
-  "description": "Educational project for ChelSU 2024",
+  "name": "csu-php/csu2024",
   "type": "project",
   "autoload": {
     "psr-4": {
-      "Mag310\\Csu2024\\": "src/app/"
+      "csu-php\\Csu2024\\": "src/app/"
     }
   },
   "authors": [
     {
-      "name": "mag310"
+      "name": "jawwr"
     }
   ],
   "minimum-stability": "dev",

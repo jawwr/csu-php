@@ -1,6 +1,6 @@
 <?php
 
-namespace csuPhp\Csu2024;
+namespace csuPhp\Csu2024\exception;
 
 use Exception;
 

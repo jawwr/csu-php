@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c1da22170fca6f83f0e3b8d7eb65f57",
+    "content-hash": "f4d7aba59a21df7a7f76bb74dbfcedca",
     "packages": [
         {
             "name": "psr/container",
@@ -402,12 +402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "288649644eb1d1766e1bf3f988db10d5d4a7ab7b"
+                "reference": "ea4781819dd824d0637ee1174304dc8cd04040f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/288649644eb1d1766e1bf3f988db10d5d4a7ab7b",
-                "reference": "288649644eb1d1766e1bf3f988db10d5d4a7ab7b",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ea4781819dd824d0637ee1174304dc8cd04040f0",
+                "reference": "ea4781819dd824d0637ee1174304dc8cd04040f0",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +474,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-03-31T21:03:53+00:00"
+            "time": "2024-04-03T02:02:00+00:00"
         }
     ],
     "aliases": [],

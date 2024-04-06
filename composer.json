@@ -1,0 +1,29 @@
+{
+  "name": "mag310/csu2024",
+  "description": "Educational project for ChelSU 2024",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Mag310\\Csu2024\\": "src/app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mag310"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "4.0.x-dev"
+  },
+  "require": {
+    "php": "8.3.*",
+    "psr/http-message": "^2.0@dev",
+    "psr/container": "^2.0@dev",
+    "psr/link": "^2.0@dev",
+    "psr/http-server-handler": "^1.0@dev",
+    "psr/http-server-middleware": "^1.0@dev",
+    "psr/simple-cache": "^3.0@dev",
+    "psr/http-factory": "^1.0@dev"
+  }
+}

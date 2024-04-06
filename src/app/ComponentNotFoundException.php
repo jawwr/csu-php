@@ -1,6 +1,6 @@
 <?php
 
-namespace Mag310\Csu2024;
+namespace csuPhp\Csu2024;
 
 use Exception;
 

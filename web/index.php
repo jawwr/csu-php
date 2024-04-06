@@ -1,7 +1,7 @@
 <?php
 
-use Mag310\Csu2024\App;
-use Mag310\Csu2024\Router;
+use csuPhp\Csu2024\App;
+use csuPhp\Csu2024\Router;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 

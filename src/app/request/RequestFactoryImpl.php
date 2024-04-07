@@ -5,7 +5,7 @@ namespace csuPhp\Csu2024\request;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 
-class CustomRequestFactory implements RequestFactoryInterface
+class RequestFactoryImpl implements RequestFactoryInterface
 {
     public function createRequest(string $method = "GET", $uri = ''): RequestInterface
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace csuPhp\Csu2024\controller;
+namespace csuPhp\Csu2024\web\controller;
 
 use csuPhp\Csu2024\components\BaseComponent;
 

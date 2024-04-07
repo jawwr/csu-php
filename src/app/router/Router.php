@@ -3,8 +3,8 @@
 namespace csuPhp\Csu2024\router;
 
 use csuPhp\Csu2024\components\BaseComponent;
-use csuPhp\Csu2024\request\CustomRequestFactory;
-use csuPhp\Csu2024\response\CustomResponseFactory;
+use csuPhp\Csu2024\request\RequestFactoryImpl;
+use csuPhp\Csu2024\response\ResponseFactoryImpl;
 use Exception;
 
 class Router extends BaseComponent
@@ -14,7 +14,7 @@ class Router extends BaseComponent
     private $routes = [];
     private $rules = [];
 
-    public function __construct(CustomRequestFactory $requestFactory, CustomResponseFactory $responseFactory)
+    public function __construct(RequestFactoryImpl $requestFactory, ResponseFactoryImpl $responseFactory)
     {
         parent::__construct();
         $this->responseFactory = $responseFactory;

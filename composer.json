@@ -6,6 +6,20 @@
       "csuPhp\\Csu2024\\": "src/app/"
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "core/app"
+    },
+    {
+      "type": "path",
+      "url": "core/router"
+    },
+    {
+      "type": "path",
+      "url": "core/di/"
+    }
+  ],
   "authors": [
     {
       "name": "jawwr"
@@ -23,6 +37,9 @@
     "psr/http-server-handler": "^1.0@dev",
     "psr/http-server-middleware": "^1.0@dev",
     "psr/simple-cache": "^3.0@dev",
-    "psr/http-factory": "^1.0@dev"
+    "psr/http-factory": "^1.0@dev",
+    "core/app": "1.0",
+    "core/di": "1.0",
+    "core/router": "1.0"
   }
 }

@@ -4,8 +4,121 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4d7aba59a21df7a7f76bb74dbfcedca",
+    "content-hash": "0ba32847b718c8dd17157f7a4e84259e",
     "packages": [
+        {
+            "name": "core/app",
+            "version": "1.0",
+            "dist": {
+                "type": "path",
+                "url": "core/app",
+                "reference": "2f9ef8e4a4d4df4ed2b797bb83ad4701bec9eaa5"
+            },
+            "require": {
+                "core/di": "1.0",
+                "core/router": "1.0",
+                "php": "8.3.*",
+                "psr/container": "^2.0@dev",
+                "psr/http-factory": "^1.0@dev",
+                "psr/http-message": "^2.0@dev",
+                "psr/http-server-handler": "^1.0@dev",
+                "psr/http-server-middleware": "^1.0@dev",
+                "psr/link": "^2.0@dev",
+                "psr/simple-cache": "^3.0@dev"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "core\\app\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "jawwr"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "core/di",
+            "version": "1.0",
+            "dist": {
+                "type": "path",
+                "url": "core/di",
+                "reference": "3bfa79833f9422a255d0fd10011dca99b5908d63"
+            },
+            "require": {
+                "core/app": "1.0",
+                "core/router": "1.0",
+                "php": "8.3.*",
+                "psr/container": "^2.0@dev",
+                "psr/http-factory": "^1.0@dev",
+                "psr/http-message": "^2.0@dev",
+                "psr/http-server-handler": "^1.0@dev",
+                "psr/http-server-middleware": "^1.0@dev",
+                "psr/link": "^2.0@dev",
+                "psr/simple-cache": "^3.0@dev"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "core\\di\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "jawwr"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "core/router",
+            "version": "1.0",
+            "dist": {
+                "type": "path",
+                "url": "core/router",
+                "reference": "63d73630e87ad7252ea8bc12ea68f29e3cb46912"
+            },
+            "require": {
+                "core/di": "*",
+                "php": "8.3.*",
+                "psr/container": "^2.0@dev",
+                "psr/http-factory": "^1.0@dev",
+                "psr/http-message": "^2.0@dev",
+                "psr/http-server-handler": "^1.0@dev",
+                "psr/http-server-middleware": "^1.0@dev",
+                "psr/link": "^2.0@dev",
+                "psr/simple-cache": "^3.0@dev"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "core\\router\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "jawwr"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "psr/container",
             "version": "dev-master",
@@ -402,12 +515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "ea4781819dd824d0637ee1174304dc8cd04040f0"
+                "reference": "2c2f24393d08dba1fa8a743b3e7f9d9bb795d55c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ea4781819dd824d0637ee1174304dc8cd04040f0",
-                "reference": "ea4781819dd824d0637ee1174304dc8cd04040f0",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/2c2f24393d08dba1fa8a743b3e7f9d9bb795d55c",
+                "reference": "2c2f24393d08dba1fa8a743b3e7f9d9bb795d55c",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +587,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-04-03T02:02:00+00:00"
+            "time": "2024-04-06T19:06:53+00:00"
         }
     ],
     "aliases": [],

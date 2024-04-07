@@ -2,7 +2,7 @@
 
 namespace core\router\middleware;
 
-class AuthMiddleWare implements IMiddleware
+class AuthorizationMiddleWare implements IMiddleware
 {
     private $registeredUsers = [
         'username' => 'admin',
@@ -10,10 +10,10 @@ class AuthMiddleWare implements IMiddleware
     ];
 
     public function handle(array $params): bool {
-        return $this->checkAuth($params['Authorization']);
+        return $this->isAuthorized($params['Authorization']);
     }
 
-    private function checkAuth(string $authorizationHeader): bool
+    private function isAuthorized(string $authorizationHeader): bool
     {
         if ($authorizationHeader && str_starts_with($authorizationHeader, 'Basic')) {
             list($username, $password) = explode(':', base64_decode(substr($authorizationHeader, 6)));

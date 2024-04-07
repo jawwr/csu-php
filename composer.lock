@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "core/app",
-                "reference": "2f9ef8e4a4d4df4ed2b797bb83ad4701bec9eaa5"
+                "reference": "9f36d4430c8d08af4ae089a7c85867516a656468"
             },
             "require": {
                 "core/di": "1.0",
@@ -50,7 +50,7 @@
             "dist": {
                 "type": "path",
                 "url": "core/di",
-                "reference": "3bfa79833f9422a255d0fd10011dca99b5908d63"
+                "reference": "557412d001c41a82803d402a9b89c0df9550be3a"
             },
             "require": {
                 "core/app": "1.0",
@@ -88,7 +88,7 @@
             "dist": {
                 "type": "path",
                 "url": "core/router",
-                "reference": "7deaca9c47312672755081db0f4bba319ecdb73e"
+                "reference": "c9dc224c8ab7fa2709f2abbb826865c39379bd16"
             },
             "require": {
                 "php": "8.3.*",

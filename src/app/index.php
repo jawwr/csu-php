@@ -2,6 +2,7 @@
 
 namespace csuPhp\Csu2024;
 
+use core\app\App;
 use core\router\route\Route;
 use csuPhp\Csu2024\controller\UserController;
 use csuPhp\Csu2024\middleware\HelloMiddleWare;
@@ -31,7 +32,7 @@ Route::post(
     'createUser'
 );
 
-print_r(Route::$routes);
+// print_r(Route::$routes);
 
-// $app = new App($config);
-// $app->run();
+$app = new App($config);
+$app->run();

@@ -21,8 +21,6 @@ class ComponentContainer extends BaseComponent implements ContainerInterface {
 
         $class = $this->config[$id];
 
-//        print_r($this->config);
-
         if (!class_exists($class)) {
             throw new ComponentNotFoundException("Class '$class' not found");
         }

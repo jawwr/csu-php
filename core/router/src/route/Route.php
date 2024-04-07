@@ -1,8 +1,8 @@
 <?php
 
-namespace csuPhp\Csu2024\router;
+namespace core\router\route;
 
-use csuPhp\Csu2024\middleware\Middleware;
+use core\router\middleware\Middleware;
 
 class Route
 {
@@ -22,6 +22,6 @@ class Route
 
     public function start(array $params): bool
     {
-        return Route::$routes[0]->next($params);
+        return static::$routes[0]->next($params);
     }
 }

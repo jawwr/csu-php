@@ -1,6 +1,6 @@
 <?php
 
-namespace csuPhp\Csu2024\middleware;
+namespace core\router\middleware;
 
 use Exception;
 

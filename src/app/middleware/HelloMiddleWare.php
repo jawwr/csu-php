@@ -1,8 +1,8 @@
 <?php
 
-namespace csuPhp\Csu2024\web\middleware;
+namespace csuPhp\Csu2024\middleware;
 
-use csuPhp\Csu2024\middleware\IMiddleware;
+use core\router\middleware\IMiddleware;
 
 class HelloMiddleWare implements IMiddleware
 {

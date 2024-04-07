@@ -7,11 +7,11 @@
             "dist": {
                 "type": "path",
                 "url": "../../core/di",
-                "reference": "051d493433c3ebc2fe14c03a24b1923b44ad0751"
+                "reference": "3bfa79833f9422a255d0fd10011dca99b5908d63"
             },
             "require": {
-                "core/app": "*",
-                "core/router": "*",
+                "core/app": "1.0",
+                "core/router": "1.0",
                 "php": "8.3.*",
                 "psr/container": "^2.0@dev",
                 "psr/http-factory": "^1.0@dev",
@@ -48,10 +48,9 @@
             "dist": {
                 "type": "path",
                 "url": "../../core/router",
-                "reference": "63d73630e87ad7252ea8bc12ea68f29e3cb46912"
+                "reference": "7deaca9c47312672755081db0f4bba319ecdb73e"
             },
             "require": {
-                "core/di": "*",
                 "php": "8.3.*",
                 "psr/container": "^2.0@dev",
                 "psr/http-factory": "^1.0@dev",

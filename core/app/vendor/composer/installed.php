@@ -22,7 +22,7 @@
         'core/di' => array(
             'pretty_version' => '1.0',
             'version' => '1.0.0.0',
-            'reference' => '051d493433c3ebc2fe14c03a24b1923b44ad0751',
+            'reference' => '3bfa79833f9422a255d0fd10011dca99b5908d63',
             'type' => 'project',
             'install_path' => __DIR__ . '/../core/di',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'core/router' => array(
             'pretty_version' => '1.0',
             'version' => '1.0.0.0',
-            'reference' => '63d73630e87ad7252ea8bc12ea68f29e3cb46912',
+            'reference' => '7deaca9c47312672755081db0f4bba319ecdb73e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../core/router',
             'aliases' => array(),

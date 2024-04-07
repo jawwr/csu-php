@@ -88,10 +88,9 @@
             "dist": {
                 "type": "path",
                 "url": "core/router",
-                "reference": "63d73630e87ad7252ea8bc12ea68f29e3cb46912"
+                "reference": "7deaca9c47312672755081db0f4bba319ecdb73e"
             },
             "require": {
-                "core/di": "*",
                 "php": "8.3.*",
                 "psr/container": "^2.0@dev",
                 "psr/http-factory": "^1.0@dev",

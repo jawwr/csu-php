@@ -1,8 +1,6 @@
 <?php
 
-namespace csuPhp\Csu2024\web\middleware;
-
-use csuPhp\Csu2024\middleware\IMiddleware;
+namespace core\router\middleware;
 
 class AuthMiddleWare implements IMiddleware
 {

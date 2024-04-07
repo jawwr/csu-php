@@ -13,13 +13,11 @@ require dirname(__DIR__) . '/../../vendor/autoload.php';
 
 $config = [
     'components' => [
-        'router' => Route::class,
-        'customRequestFactory' => CustomRequestFactory::class,
-        'customResponseFactory' => CustomResponseFactory::class,
         'userController' => UserController::class
-    ]
+    ],
+//    'componentScan' => __DIR__,
 ];
-
+echo "<pre>";
 Route::get('/user',
     UserController::class,
     'getUsers',

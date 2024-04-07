@@ -16,13 +16,13 @@ class ComponentContainer extends BaseComponent implements ContainerInterface {
             return $this->components[$id];
         }
         if (!isset($this->config[$id])) {
-            throw new ComponentNotFoundException();
+            throw new ComponentNotFoundException("Components with id '$id' not found");
         }
 
         $class = $this->config[$id];
 
         if (!class_exists($class)) {
-            throw new ComponentNotFoundException();
+            throw new ComponentNotFoundException("Class with id '$id' not found");
         }
         $ref = new ReflectionClass($class);
         $constructor = $ref->getConstructor();

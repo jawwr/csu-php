@@ -6,7 +6,7 @@ use csuPhp\Csu2024\response;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class CustomResponseFactory implements ResponseFactoryInterface
+class ResponseFactoryImpl implements ResponseFactoryInterface
 {
     public function createResponse(int $code = 200, string $reasonPhrase = ''): ResponseInterface
     {

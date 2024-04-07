@@ -28,7 +28,7 @@ class App extends BaseComponent
         $router = $this->container->get('router');
         $this->container->get('userController');
         $controller = $this->container->get('testController');
-        $controller->test();
+        // $controller->test();
 //        $router->run();
     }
 

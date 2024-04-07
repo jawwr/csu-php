@@ -13,7 +13,8 @@ class ContentTypeMiddleWare implements IMiddleware
 
     private function isJsonCorrect(mixed $contentType): bool
     {
-        $json = file_get_contents($contentType);
+        // $json = file_get_contents($contentType);
+        $json = '{}';//TODO доставать из запроса
 
         $data = json_decode($json, true);
 

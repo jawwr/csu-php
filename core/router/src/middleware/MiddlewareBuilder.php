@@ -14,7 +14,7 @@ class MiddlewareBuilder {
 
     public function middleware(string $name): MiddlewareBuilder {
         if (!class_exists($name)) {
-            throw new Exception("Class doesn't exist");
+            throw new Exception("Class $name doesn't exist");
         }
         $impls = class_implements($name);
         if (!isset($impls[IMiddleware::class])) {

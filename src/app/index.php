@@ -3,10 +3,12 @@
 namespace csuPhp\Csu2024;
 
 use core\app\App;
+use core\router\middleware\AuthenticationMiddleWare;
+use core\router\middleware\AuthorizationMiddleWare;
+use core\router\middleware\ContentTypeMiddleWare;
 use core\router\route\Route;
 use csuPhp\Csu2024\controller\UserController;
 use csuPhp\Csu2024\middleware\HelloMiddleWare;
-use csuPhp\Csu2024\middleware\TestMiddleware;
 
 require dirname(__DIR__) . '/../vendor/autoload.php';
 
@@ -23,8 +25,16 @@ $route = Route::get(
     UserController::class,
     'getUsers'
 );
-$route->middleware(TestMiddleware::class)->middleware(HelloMiddleWare::class);
-$route->handle([]);
+$username = base64_encode("admin:password");
+$requestHeader = [
+    'Authorization' => "Basic $username",
+];
+
+$route->middleware(HelloMiddleWare::class)
+->middleware(AuthorizationMiddleWare::class)
+->middleware(ContentTypeMiddleWare::class)
+;
+$route->handle($requestHeader);
 
 Route::post(
     '/users',

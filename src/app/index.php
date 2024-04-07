@@ -2,8 +2,6 @@
 
 namespace csuPhp\Csu2024;
 
-use core\app\App;
-use core\router\response\TestResponse;
 use core\router\route\Route;
 use csuPhp\Csu2024\controller\UserController;
 use csuPhp\Csu2024\middleware\HelloMiddleWare;
@@ -19,12 +17,21 @@ $config = [
 ];
 echo "<pre>";
 
-Route::get(
+$route = Route::get(
     '/users',
     UserController::class,
-    'getUsers',
-    [HelloMiddleWare::class, TestMiddleware::class]
+    'getUsers'
+);
+$route->middleware(TestMiddleware::class)->middleware(HelloMiddleWare::class);
+$route->handle([]);
+
+Route::post(
+    '/users',
+    UserController::class,
+    'createUser'
 );
 
-$app = new App($config);
-$app->run();
+print_r(Route::$routes);
+
+// $app = new App($config);
+// $app->run();

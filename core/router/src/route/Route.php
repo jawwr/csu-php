@@ -13,16 +13,6 @@ class Route
     private string $requestMethod;
     private MiddlewareBuilder $middleware;
 
-    public array $test = [
-        '/test' => [
-            'POST' => [
-                'class' => 'SomeController',
-                'method' => 'someMethod',
-                'middleware' => 'TestMiddleware'
-            ]
-        ]
-    ];
-
     private function __construct(string $name, string $requestMethod)
     {
         $this->name = $name;

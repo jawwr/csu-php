@@ -9,8 +9,8 @@ class HelloMiddleWare implements IMiddleware
 
     public function handle(array $params): bool
     {
-        echo "PHP goes 'brbrbr'";
-        echo "<br>";
+        // echo "{ \"message\": \"PHP goes 'brbrbr'\"}";
+        // echo "<br>";
         return true;
     }
 }

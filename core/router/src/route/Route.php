@@ -53,7 +53,6 @@ class Route
         if (!$this->middleware->next($params)) {
             throw new Exception("Reqeuest error handling");
         }
-        return null;
     }
 
     public function middleware(string $name): MiddlewareBuilder {

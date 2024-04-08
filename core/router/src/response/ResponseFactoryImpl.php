@@ -9,6 +9,6 @@ class ResponseFactoryImpl implements ResponseFactoryInterface
 {
     public function createResponse(int $code = 200, string $reasonPhrase = ''): ResponseInterface
     {
-        return new Response($code, $reasonPhrase, [], "", "1.1");
+        return new Response($code, $reasonPhrase, [], "pupupu", "1.1");
     }
 }

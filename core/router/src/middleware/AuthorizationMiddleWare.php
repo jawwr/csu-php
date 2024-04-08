@@ -10,17 +10,20 @@ class AuthorizationMiddleWare implements IMiddleware
     ];
 
     public function handle(array $params): bool {
+        if (!isset($params['Authorization'])) {
+            return false;
+        }
         return $this->isAuthorized($params['Authorization']);
     }
 
     private function isAuthorized(string $authorizationHeader): bool
     {
-        if ($authorizationHeader && str_starts_with($authorizationHeader, 'Basic')) {
-            list($username, $password) = explode(':', base64_decode(substr($authorizationHeader, 6)));
-            if ($username === $this->registeredUsers['username'] && $password === $this->registeredUsers['password']) {
-                return true;
-            }
+        if (!str_starts_with($authorizationHeader, 'Basic')) {
+            return false;
         }
-        return false;
+        list($username, $password) = explode(':', base64_decode(substr($authorizationHeader, 6)));
+        $expected = $this->registeredUsers['username'];
+        return $username === $expected
+            && $password === $this->registeredUsers['password'];
     }
 }

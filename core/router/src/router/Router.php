@@ -5,20 +5,21 @@ namespace core\router\router;
 use core\di\components\BaseComponent;
 use core\router\request\RequestFactoryImpl;
 use core\router\response\ResponseFactoryImpl;
+use core\router\route\Route;
 use Exception;
 
 class Router extends BaseComponent
 {
     private $responseFactory;
     private $requestFactory;
-    private $routes = [];
-    private $rules = [];
+    private $routes;
 
     public function __construct(RequestFactoryImpl $requestFactory, ResponseFactoryImpl $responseFactory)
     {
         parent::__construct();
         $this->responseFactory = $responseFactory;
         $this->requestFactory = $requestFactory;
+        $this->routes = Route::$routes ?? [];
     }
 
     public function addRoute($method, $path, $handler)
@@ -41,26 +42,41 @@ class Router extends BaseComponent
         }
     }
 
-    public function run(): string
+    public function start(): void
     {
-        $request = $this->requestFactory->createRequest($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
-        $path = $_SERVER["path"];
-        $result = "";
-        foreach ($this->rules as $rule => $handler) {
-            if (preg_match($rule, $path) != 0) {
-                $result = call_user_func($handler, $request);
-                break;
-            }
+        $uri = $_SERVER['REQUEST_URI'];
+        if (!isset($this->routes[$uri])) {
+            $this->sendResponse(404);
+            return;
         }
-        if (empty($result)) {
-            throw new Exception();
+        $method = $_SERVER["REQUEST_METHOD"];
+        if (!isset($this->routes[$uri][$method])) {
+            $this->sendResponse(404);
+            return;
         }
-        return $result;
+        $handler = $this->routes[$uri][$method];
+
+        $result = $this->handle($handler);
+        $this->sendResponse(body:$result);
     }
 
-    protected function init(): void
+    private function sendResponse($code = 200, mixed $body = '') 
     {
-        // $this->rules = ["index" => fn($request) => new TextResponse("pupupu"),];
-        $this->rules = [];
+        header("Content-Type: application/json");
+        http_response_code($code);
+        echo json_encode($body);
+    }
+
+    private function handle(array $handler): mixed
+    {
+        if (isset($handler["middleware"])) {
+            $middleware = $handler["middleware"];
+            if (!$middleware->next(getallheaders())) {
+                throw new Exception("Reqeuest error handling");
+            }
+        }
+        $class = $handler['class'];
+        $method = $handler['method'];
+        return $class->$method();
     }
 }

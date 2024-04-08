@@ -3,9 +3,7 @@
 namespace csuPhp\Csu2024;
 
 use core\app\App;
-use core\router\middleware\AuthenticationMiddleWare;
 use core\router\middleware\AuthorizationMiddleWare;
-use core\router\middleware\ContentTypeMiddleWare;
 use core\router\route\Route;
 use csuPhp\Csu2024\controller\UserController;
 use csuPhp\Csu2024\middleware\HelloMiddleWare;
@@ -13,15 +11,12 @@ use csuPhp\Csu2024\middleware\HelloMiddleWare;
 require dirname(__DIR__) . '/../vendor/autoload.php';
 
 $config = [
-//    'components' => [
-//        'userController' => UserController::class
-//    ],
     'componentScan' => __DIR__,
 ];
-echo "<pre>";
+// echo "<pre>";
 
 $route = Route::get(
-    '/users',
+    '/index',
     UserController::class,
     'getUsers'
 );
@@ -32,9 +27,9 @@ $requestHeader = [
 
 $route->middleware(HelloMiddleWare::class)
 ->middleware(AuthorizationMiddleWare::class)
-->middleware(ContentTypeMiddleWare::class)
+// ->middleware(ContentTypeMiddleWare::class)
 ;
-$route->handle($requestHeader);
+// $route->handle($requestHeader);
 
 Route::post(
     '/users',

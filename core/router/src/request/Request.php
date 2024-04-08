@@ -6,6 +6,7 @@ use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
+use function Sodium\add;
 
 class Request implements RequestInterface
 {
@@ -42,33 +43,42 @@ class Request implements RequestInterface
 
     public function hasHeader(string $name): bool
     {
-        return count($this->headers);
+        return isset($this->headers[$name]);
     }
 
     public function getHeader(string $name): array
     {
-        return $this->headers[$name];
+        return $this->headers[$name] ?? [];
     }
 
     public function getHeaderLine(string $name): string
     {
-        return $this->headers[$name];
+        return implode(',', $this->getHeader($name));
     }
 
     public function withHeader(string $name, $value): MessageInterface
     {
-        return $this;
+        $new = clone $this;
+        $new->headers[$name] = [$value];
+        return $new;
     }
 
     public function withAddedHeader(string $name, $value): MessageInterface
     {
-        return $this;
+        $new = clone $this;
+        if (isset($new->headers[$name])) {
+            $new->headers[$name][] = $value;
+        } else {
+            $new->headers[$name] = [$value];
+        }
+        return $new;
     }
 
     public function withoutHeader(string $name): MessageInterface
     {
-        $this->headers = [];
-        return $this;
+        $new = clone $this;
+        unset($new->headers[$name]);
+        return $new;
     }
 
     public function getBody(): StreamInterface
@@ -78,8 +88,9 @@ class Request implements RequestInterface
 
     public function withBody(StreamInterface $body): MessageInterface
     {
-        $this->body = $body;
-        return $this;
+        $new = clone $this;
+        $new->body = $body;
+        return $new;
     }
 
     public function getRequestTarget(): string
@@ -99,8 +110,9 @@ class Request implements RequestInterface
 
     public function withMethod(string $method): RequestInterface
     {
-        $this->method = $method;
-        return $this;
+        $new = clone $this;
+        $new->method = $method;
+        return $new;
     }
 
     public function getUri(): UriInterface
@@ -110,8 +122,8 @@ class Request implements RequestInterface
 
     public function withUri(UriInterface $uri, bool $preserveHost = false): RequestInterface
     {
-        $this->uri = $uri;
-        return $this;
+        $new = clone $this;
+        $new->uri = $uri;
+        return $new;
     }
 }
-

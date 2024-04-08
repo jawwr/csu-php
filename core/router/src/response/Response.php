@@ -70,22 +70,30 @@ class Response implements ResponseInterface
 
     public function getHeader(string $name): array
     {
-        return $this->headers[$name];
+        return $this->headers[$name] ?? [];
     }
 
     public function getHeaderLine(string $name): string
     {
-        return $this->headers[$name];
+        return implode(',', $this->getHeader($name));
     }
 
     public function withHeader(string $name, $value): MessageInterface
     {
-        return $this;
+        $new = clone $this;
+        $new->headers[$name] = [$value];
+        return $new;
     }
 
     public function withAddedHeader(string $name, $value): MessageInterface
     {
-        return $this;
+        $new = clone $this;
+        if (isset($new->headers[$name])) {
+            $new->headers[$name][] = $value;
+        } else {
+            $new->headers[$name] = [$value];
+        }
+        return $new;
     }
 
     public function withoutHeader(string $name): MessageInterface

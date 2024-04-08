@@ -34,24 +34,16 @@ class Router extends BaseComponent
     {
         $uri = $_SERVER['REQUEST_URI'];
         if (!isset($this->routes[$uri])) {
-            $this->sendResponse(404);
+            $this->requestDispatcher->sendResponse(404);
             return;
         }
         $method = $_SERVER["REQUEST_METHOD"];
         if (!isset($this->routes[$uri][$method])) {
-            $this->sendResponse(404);
+            $this->requestDispatcher->sendResponse(404);
             return;
         }
         $handler = $this->routes[$uri][$method];
 
-        $result = $this->requestDispatcher->handle(getallheaders(), $handler);
-        $this->sendResponse(body: $result);
-    }
-
-    private function sendResponse($code = 200, mixed $body = '') 
-    {
-        header("Content-Type: application/json");
-        http_response_code($code);
-        echo json_encode($body);
+        $this->requestDispatcher->handle(getallheaders(), $handler);
     }
 }

@@ -3,21 +3,30 @@
 namespace core\router\request;
 
 use core\di\components\BaseComponent;
+use core\router\middleware\MiddlewareHandleException;
 use Exception;
 
 class RequestDispatcher extends BaseComponent {
-    public function handle(array $headers, array $handler): mixed
+    public function handle(array $headers, array $handler): void
     {
         $acceptHeader = $this->getAcceptHeader($headers);
-
-        return $this->generateResponse($acceptHeader, $headers, $handler);
+        try {
+            $response = $this->generateResponse($acceptHeader, $headers, $handler);
+            $this->sendResponse(body: $response);
+        } catch (MiddlewareHandleException $e) {
+            $response = ["time" => time()];
+            $this->sendResponse(403, $response);
+        } catch (Exception $e) {
+            $response = ["time" => time(), "message" => $e->getMessage()];
+            $this->sendResponse(500, $response);
+        }
     }
 
     private function getResponse(array $handler) {
         if (isset($handler["middleware"])) {
             $middleware = $handler["middleware"];
             if (!$middleware->next(getallheaders())) {
-                throw new Exception("Reqeuest error handling");
+                throw new MiddlewareHandleException("Reqeuest error handling");
             }
         }
         $class = $handler['class'];
@@ -66,5 +75,12 @@ class RequestDispatcher extends BaseComponent {
         }
         $html .= '</ul>';
         return $html;
+    }
+
+    public function sendResponse($code = 200, mixed $body = '') 
+    {
+        header("Content-Type: application/json");
+        http_response_code($code);
+        echo json_encode($body);
     }
 }

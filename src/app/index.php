@@ -5,6 +5,7 @@ namespace csuPhp\Csu2024;
 use core\app\App;
 use core\router\middleware\AuthorizationMiddleWare;
 use core\router\route\Route;
+use csuPhp\Csu2024\controller\TestController;
 use csuPhp\Csu2024\controller\UserController;
 use csuPhp\Csu2024\middleware\HelloMiddleWare;
 
@@ -36,6 +37,12 @@ Route::post(
     UserController::class,
     'createUser'
 );
+
+Route::post(
+    '/test',
+    TestController::class,
+    'testException'
+)->middleware(AuthorizationMiddleWare::class);
 
 // print_r(Route::$routes);
 

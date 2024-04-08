@@ -4,6 +4,7 @@ namespace csuPhp\Csu2024\controller;
 
 use core\di\components\BaseComponent;
 use csuPhp\Csu2024\service\TestService;
+use Exception;
 
 class TestController extends BaseComponent
 {
@@ -15,5 +16,9 @@ class TestController extends BaseComponent
 
     public function test() {
         $this->service->test();
+    }
+
+    public function testException() {
+        throw new Exception('Some test exception');
     }
 }

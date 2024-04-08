@@ -26,7 +26,7 @@ $requestHeader = [
 ];
 
 $route->middleware(HelloMiddleWare::class)
-->middleware(AuthorizationMiddleWare::class)
+// ->middleware(AuthorizationMiddleWare::class)
 // ->middleware(ContentTypeMiddleWare::class)
 ;
 // $route->handle($requestHeader);

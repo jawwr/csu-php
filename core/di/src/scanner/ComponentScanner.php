@@ -3,6 +3,7 @@
 namespace core\di\scanner;
 
 use core\di\components\BaseComponent;
+use core\router\request\RequestDispatcher;
 use core\router\request\RequestFactoryImpl;
 use core\router\response\ResponseFactoryImpl;
 use core\router\router\Router;
@@ -32,6 +33,7 @@ class ComponentScanner extends BaseComponent implements IComponentScanner {
         $components['router'] = Router::class;
         $components['requestFactoryImpl'] = RequestFactoryImpl::class;
         $components['responseFactoryImpl'] = ResponseFactoryImpl::class;
+        $components['requestDispatcher'] = RequestDispatcher::class;
     }
 
     private function addComponentsToConfig(array $classes): void

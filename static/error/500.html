@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>error</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="main error">
+    <div class="bg ps">
+        500
+    </div>
+    <div class="bg">
+        Больше сюда не пиши
+    </div>
+    <audio preload="auto" autoplay loop id="audio">
+        <source src="../audio/penis-music.mp3" type="audio/mpeg">
+    </audio>
+    <h1 class="text_animated">
+        five hundred error
+    </h1>
+</body>
+<script>
+    document.addEventListener("click", () => {
+        const audio = document.getElementById('audio');
+
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
+</html>

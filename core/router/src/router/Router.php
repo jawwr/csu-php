@@ -34,12 +34,14 @@ class Router extends BaseComponent
     {
         $uri = $_SERVER['REQUEST_URI'];
         if (!isset($this->routes[$uri])) {
-            $this->requestDispatcher->sendResponse(404);
+            // $this->requestDispatcher->sendResponse(404);
+            header("Location: static/error/404.html", true, 301);
             return;
         }
         $method = $_SERVER["REQUEST_METHOD"];
         if (!isset($this->routes[$uri][$method])) {
             $this->requestDispatcher->sendResponse(404);
+            header("Location: static/error/404.html", true, 301);
             return;
         }
         $handler = $this->routes[$uri][$method];

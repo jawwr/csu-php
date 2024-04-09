@@ -3,6 +3,7 @@
 namespace core\router\request;
 
 use core\di\components\BaseComponent;
+use core\router\middleware\AuthException;
 use core\router\middleware\MiddlewareHandleException;
 use Exception;
 
@@ -15,10 +16,10 @@ class RequestDispatcher extends BaseComponent {
             $this->sendResponse(body: $response);
         } catch (MiddlewareHandleException $e) {
             $response = ["time" => time()];
-            $this->sendResponse(403, $response);
+            header("Location: static/error/403.html", true, 301);
         } catch (Exception $e) {
             $response = ["time" => time(), "message" => $e->getMessage()];
-            $this->sendResponse(500, $response);
+            header("Location: static/error/5xx.html", true, 301);
         }
     }
 
